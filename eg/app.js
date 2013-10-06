@@ -13,8 +13,10 @@ server.listen(3000);
 
 
 
+var lou = new louis({
+	freq: 1000
+});
 
-var lou = new louis();
 var boy = new cowboy();
 
 lou.start();
