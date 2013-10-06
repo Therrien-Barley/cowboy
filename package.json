@@ -1,0 +1,15 @@
+{
+    "name": "cowboy",
+    "description": "Cowboy",
+    "version": "0.0.1",
+    "author": {
+        "name": "Your Name <your@email.com>",
+        "email": "your@email.com"
+    },
+    "dependencies": {
+        "gm": "*"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    }
+}
