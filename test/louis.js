@@ -5,6 +5,7 @@ var events = require("events"),
 function louis( opts ){
 	console.log('created louis');
 	this.freq = opts.freq;
+	this.total = opts.total;
 }
 
 util.inherits( louis, events.EventEmitter );
@@ -16,14 +17,14 @@ louis.prototype.start = function(){
 	var interval_id;
 
 	interval_id = setInterval(function(){
-		if(i < 10){
+		if(i < self.total){
 			console.log('interval '+ i);
 			self.emit("data", "depth" + i + ".png", "rgb" + i + ".png");
 			i++;
 		}else{
 			clearInterval( interval_id );
 		}
-	}, this.freq);	
+	}, self.freq);	
 };
 
 
