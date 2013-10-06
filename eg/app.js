@@ -20,12 +20,15 @@ var lou = new louis({
 
 var boy = new cowboy();
 
+//start the test setInterval
 lou.start();
 
 
 
-lou.on("data", function( mask, bg ){
-	boy.mask(mask, bg);
+lou.on("data", function( depth, rgb ){
+	console.log("depth: " + depth);
+	console.log("test rgb: " + rgb);
+	boy.mask(depth, rgb);
 });
 
 
