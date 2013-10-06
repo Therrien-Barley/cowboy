@@ -8,7 +8,12 @@ http.createServer(function(req, res) {
 
 //      var timestamp = new Date().getTime();
 
-        proc_id = spawn("cat 'oy' > /srv/www/cowboy/touchtest", "");
+		try {
+			proc_id = spawn("cat 'oy' > /home/provolot/nodecode/cowboy/touchtest", "");
+		 } catch (e) {
+			console.log("entering catch block");
+			console.log(e);
+		}
 
         proc_id.stdout.on("data", function(data) {
                 console.log('stdout: ' + data);
