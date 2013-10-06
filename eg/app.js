@@ -13,15 +13,26 @@ server.listen(3000);
 
 
 
+<<<<<<< HEAD
 var lou = new louis();
+=======
+var lou = new louis({
+	freq: 1000,
+	total: 10
+});
+
+>>>>>>> 33ba859d5bb6180a9789f1bf62d7850ec62ffcda
 var boy = new cowboy();
 
+//start the test setInterval
 lou.start();
 
 
 
-lou.on("data", function( mask, bg ){
-	boy.mask(mask, bg);
+lou.on("data", function( depth, rgb ){
+	console.log("depth: " + depth);
+	console.log("test rgb: " + rgb);
+	boy.mask(depth, rgb);
 });
 
 
