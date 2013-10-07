@@ -3,14 +3,7 @@ var louis = require("../test/louis"),
 	http = require('http');
 
 
-
-var server = http.createServer(function (req, res) {
-  res.writeHead(200, {"Content-Type": "text/plain"});
-  res.end("Hello World\n");
-});
-
-server.listen(3000);
-
+var latest_image;
 
 var lou = new louis({
 	freq: 1000,
@@ -39,4 +32,13 @@ lou.on("data", function( err, depth_imagepath, rgb_imagepath ){
 
 boy.on("done", function( image ){
 	console.log('done');
+	latest_image = image;
 });
+
+
+var server = http.createServer(function (req, res) {
+  res.writeHead(200, {"Content-Type": "text/plain"});
+  res.end("Hello World\n");
+});
+
+server.listen(3000);
