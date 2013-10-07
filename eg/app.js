@@ -15,7 +15,7 @@ server.listen(3000);
 var lou = new louis({
 	freq: 1000,
 	total: 10,
-
+	imagepath: "/Users/troytherrien/Insync/info@th-ey.co/Teaching/Fall 2013/Site to Site/Github/depthcam/test/"
 });
 
 var boy = new cowboy();
@@ -23,12 +23,17 @@ var boy = new cowboy();
 //start the test setInterval
 lou.start();
 
+var threshold = 128;
 
+var destination_path = "/Users/troytherrien/Insync/info@th-ey.co/Teaching/Fall 2013/Site to Site/Github/depthcam/test/masked/";
 
-lou.on("data", function( depth, rgb ){
-	console.log("depth: " + depth);
-	console.log("test rgb: " + rgb);
-	boy.mask(depth, rgb);
+lou.on("data", function( err, depth_imagepath, rgb_imagepath ){
+	console.log("depth: " + depth_imagepath);
+	console.log("test rgb: " + rgb_imagepath);
+
+	var file_timestamp = depth_imagepath.substring(depth_imagepath.lastIndexOf("/")+1, depth_imagepath.lastIndexOf("."));
+
+	boy.mask(depth_imagepath, rgb_imagepath, destination_path, file_timestamp + ".png", threshold);
 });
 
 
