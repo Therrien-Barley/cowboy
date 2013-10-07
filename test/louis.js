@@ -19,12 +19,21 @@ louis.prototype.start = function(){
 	var interval_id;
 
 
-	fs.watch(this.imagepath + '/depth/', function(event, filename){
+	fs.watch(this.imagepath + 'depth/', function(event, filename){
+
+		console.log('\n\n\n');
+		console.log('event: ');
+		console.log(event);
+		console.dir(event);
+		console.log('\n filename: ');
+		console.log(filename);
+		console.log('\n\n\n');
+
 	    //rename is called once, change is called 3 times, so check for rename to elimate duplicates
 	    if(event === "rename"){
-	    	console.log('new depth file added at: ' + self.imagepath + '/depth/' + filename );
-	    	console.log('new rgb file added at: ' + self.imagepath + '/rgb/' + filename );
-	    	self.emit( "data", null, self.imagepath + '/depth/' + filename, self.imagepath + '/rgb/' + filename );
+	    	console.log('new depth file added at: ' + self.imagepath + 'depth/' + filename );
+	    	console.log('new rgb file added at: ' + self.imagepath + 'rgb/' + filename );
+	    	self.emit( "data", null, self.imagepath + 'depth/' + filename, self.imagepath + 'rgb/' + filename );
 	    }
 	  });
 
