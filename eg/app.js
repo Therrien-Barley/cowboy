@@ -14,7 +14,8 @@ server.listen(3000);
 
 var lou = new louis({
 	freq: 1000,
-	total: 10
+	total: 10,
+
 });
 
 var boy = new cowboy();

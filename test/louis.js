@@ -12,14 +12,14 @@ util.inherits( louis, events.EventEmitter );
 
 louis.prototype.start = function(){
 	var self = this;
-	var i = 0;
+	var i = 1;
 
 	var interval_id;
 
 	interval_id = setInterval(function(){
-		if(i < self.total){
+		if(i <= self.total){
 			console.log('interval '+ i);
-			self.emit("data", "depth" + i + ".png", "rgb" + i + ".png");
+			self.emit("data", i + ".png", i + ".png");
 			i++;
 		}else{
 			clearInterval( interval_id );
